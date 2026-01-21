@@ -6,9 +6,15 @@ public class Translator
         englishToGerman.AddWord("House", "Haus");
         englishToGerman.AddWord("Car", "Auto");
         englishToGerman.AddWord("Plane", "Flugzeug");
+        englishToGerman.AddWord("Pan", "Coco");
+        englishToGerman.AddWord("Grape", "mama");
+        englishToGerman.AddWord("UlaUla", "Gutentag");
         Console.WriteLine(englishToGerman.Translate("Car")); // Auto
         Console.WriteLine(englishToGerman.Translate("Plane")); // Flugzeug
         Console.WriteLine(englishToGerman.Translate("Train")); // ???
+        Console.WriteLine(englishToGerman.Translate("Pan")); // ???
+        Console.WriteLine(englishToGerman.Translate("Grape")); // ???
+        Console.WriteLine(englishToGerman.Translate("Hola")); // ???
     }
 
     private Dictionary<string, string> _words = new();
@@ -25,6 +31,8 @@ public class Translator
     public void AddWord(string fromWord, string toWord)
     {
         // ADD YOUR CODE HERE
+        _words[fromWord] = toWord;
+
     }
 
     /// <summary>
@@ -35,6 +43,15 @@ public class Translator
     public string Translate(string fromWord)
     {
         // ADD YOUR CODE HERE
-        return "";
+        string newWord = "???";
+
+        if (_words.ContainsKey(fromWord))
+        {
+            newWord = _words[fromWord];
+        }
+
+        return newWord;
+
+
     }
 }
